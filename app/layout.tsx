@@ -1,7 +1,20 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Manrope } from 'next/font/google';
 import { Providers } from './providers';
+import { cx } from '@/utils';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-in',
+});
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mr',
+});
 
 export const metadata: Metadata = {
   title: 'Catchit',
@@ -15,7 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>
+      <body 
+      className={cx(inter.variable, manrope.variable, "font-mr bg-light dark:bg-dark")}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
