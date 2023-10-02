@@ -12,10 +12,13 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from '@nextui-org/react';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const pathName = usePathname();
 
   const menuItems = ['Home', 'About', 'Contact', 'Post'];
 
@@ -32,23 +35,23 @@ export default function Header() {
       </NavbarContent>
 
       <NavbarContent className='hidden sm:flex gap-4' justify='center'>
-        <NavbarItem isActive>
-          <Link href='#' aria-current='page'>
+        <NavbarItem isActive={pathName === '/'}>
+          <Link href='/' color='foreground'>
             Home
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link href='#' color='foreground'>
+        <NavbarItem isActive={pathName === '/About'}>
+          <Link href='/About' color='foreground'>
             About
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color='foreground' href='#'>
+        <NavbarItem isActive={pathName === '/Contact'}>
+          <Link color='foreground' href='/Contact'>
             Contact
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color='foreground' href='#'>
+        <NavbarItem isActive={pathName === '/postBox'}>
+          <Link color='foreground' href='/postBox'>
             Posts
           </Link>
         </NavbarItem>
