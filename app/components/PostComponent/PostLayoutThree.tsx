@@ -2,13 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { format } from 'date-fns';
 
-const PostLayoutTwo = ({ post }: any) => {
+const PostLayoutThree = ({ post }: any) => {
   return (
-    <div className='group grid grid-cols-12 gap-4 items-center text-dark'>
-      <Link
-        href={post.url}
-        className='col-span-4 h-full rounded-xl overflow-hidden'
-      >
+    <div className='group flex flex-col items-center text-dark'>
+      <Link href={post.url} className='h-full rounded-xl overflow-hidden'>
         <Image
           src={post.image.filePath.replace('../public', '')}
           placeholder='blur'
@@ -16,11 +13,11 @@ const PostLayoutTwo = ({ post }: any) => {
           alt={post.title}
           width={post.image.width}
           height={post.image.height}
-          className='aspect-square w-full h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300'
+          className='aspect-[4/3] w-full h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300'
         />
       </Link>
 
-      <div className=' col-span-8 w-full'>
+      <div className='flex flex-col mt-4 w-full'>
         <span className='uppercase text-catchitBlue font-semibold text-sm'>
           {post.tags[0]}
         </span>
@@ -31,7 +28,7 @@ const PostLayoutTwo = ({ post }: any) => {
             </span>
           </h2>
         </Link>
-        <br />
+
         <span className='capitalize text-dark/50 font-semibold text-base'>
           {format(new Date(post.publishedAt), 'MMMM dd, yyyy')}
         </span>
@@ -40,4 +37,4 @@ const PostLayoutTwo = ({ post }: any) => {
   );
 };
 
-export default PostLayoutTwo;
+export default PostLayoutThree;

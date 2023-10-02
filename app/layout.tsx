@@ -4,6 +4,7 @@ import { Inter, Manrope } from 'next/font/google';
 import { Providers } from './providers';
 import { cx } from '@/app/utils';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,7 +35,9 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
-          {children}</Providers>
+          {children}
+          <Footer />
+          </Providers>
       </body>
     </html>
   );
