@@ -1,6 +1,7 @@
 import { sortPosts } from '@/app/utils';
 import Link from 'next/link';
 import PostLayoutThree from '../PostComponent/PostLayoutThree';
+import { Key } from 'react';
 
 const RecentPosts = ({ posts }: any) => {
   const sortedPosts = sortPosts(posts);
@@ -19,9 +20,9 @@ const RecentPosts = ({ posts }: any) => {
       </div>
 
       <div className='grid grid-cols-3 grid-rows-2 gap-16 mt-16'>
-        {sortedPosts.slice(5, 11).map((post, index) => {
+        {sortedPosts.slice(5, 11).map((post: any, index: Key | null | undefined) => {
           return (
-            <article className='col-span-1 row-span-1 relative'>
+            <article key={index} className='col-span-1 row-span-1 relative'>
               <PostLayoutThree post={post} />
             </article>
           );

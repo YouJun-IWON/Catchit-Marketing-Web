@@ -1,7 +1,45 @@
 import { allPosts } from '@/.contentlayer/generated';
+import Tag from '@/app/components/Elements/Tag';
+import PostDetails from '@/app/components/Posts/PostDetails';
+import RenderMdx from '@/app/components/Posts/RenderMdx';
+import Image from 'next/image';
 
 export default function PostPage({ params }: { params: { slug: string } }) {
+  const post: any = allPosts.find(
+    (post) => post._raw.flattenedPath === params.slug
+  );
+  return (
+    <article>
+      <div className='mb-8 text-center relative w-full h-[70vh] bg-dark'>
+        <div className='w-full z-10 flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+          <Tag
+            name={post.tags[0]}
+            link={`/categories/${post.tags[0]}`}
+            className='px-6 text-sm py-2'
+          />
 
-  const blog = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-  return <div>My Posts: {params.slug}</div>;
+          <h1 className='"inline-block mt-6 font-semibold capitalize text-light text-5xl leading-normal relative w-5/6'>
+            {post!.title}
+          </h1>
+        </div>
+        <div className='absolute top-0 left-0 right-0 bottom-0 h-full bg-dark/60 ' />
+        <Image
+          src={post.image.filePath.replace('../public', '')}
+          placeholder='blur'
+          blurDataURL={post.image.blurhashDataUrl}
+          alt={post.title}
+          width={post.image.width}
+          height={post.image.height}
+          className='aspect-square w-full h-full object-cover object-center'
+        />
+      </div>
+
+      <PostDetails post={post} slug={params.slug} />
+
+      <div className='grid grid-cols-12 gap-16 mt-8 px-10'>
+        <div className='col-span-4'>Toc</div>
+        <RenderMdx post={post} />
+      </div>
+    </article>
+  );
 }

@@ -1,8 +1,10 @@
 import { makeSource, defineDocumentType } from '@contentlayer/source-files';
+import readingTime from 'reading-time';
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: '**/**/*.mdx',
+  contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
@@ -38,6 +40,10 @@ const Post = defineDocumentType(() => ({
     url: {
       type: 'string',
       resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
+    },
+    readingTime: {
+      type: 'json',
+      resolve: (doc) => readingTime(doc.body.raw),
     },
   },
 }));
