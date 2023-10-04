@@ -2,7 +2,12 @@ import { allPosts } from '@/.contentlayer/generated';
 import Tag from '@/app/components/Elements/Tag';
 import PostDetails from '@/app/components/Posts/PostDetails';
 import RenderMdx from '@/app/components/Posts/RenderMdx';
+import { slug } from 'github-slugger';
 import Image from 'next/image';
+
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+}
 
 export default function PostPage({ params }: { params: { slug: string } }) {
   const post: any = allPosts.find(
@@ -14,7 +19,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         <div className='w-full z-10 flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
           <Tag
             name={post.tags[0]}
-            link={`/categories/${post.tags[0]}`}
+            link={`/categories/${slug(post.tags[0])}`}
             className='px-6 text-sm py-2'
           />
 
@@ -57,9 +62,11 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                       
                       data-[level=three]:pl-6 flex items-center justify-start'
                     >
-                      {
-                        heading.level === "three" ? <span className='flex w-1 h-1 rounded-full bg-dark mr-2'>&nbsp;</span> : null
-                      }
+                      {heading.level === 'three' ? (
+                        <span className='flex w-1 h-1 rounded-full bg-dark mr-2'>
+                          &nbsp;
+                        </span>
+                      ) : null}
                       <span className='hover:underline'>{heading.text}</span>
                     </a>
                   </li>

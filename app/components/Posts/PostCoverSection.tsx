@@ -2,6 +2,7 @@ import { sortPosts } from '@/app/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import Tag from '../Elements/Tag';
+import { slug } from 'github-slugger';
 
 const PostCoverSection = ({ posts }: any) => {
   const sortedPosts = sortPosts(posts);
@@ -21,13 +22,17 @@ const PostCoverSection = ({ posts }: any) => {
           className='w-full h-full object-center object-cover rounded-3xl z-0'
         />
         <div className='w-3/4 p-16 flex flex-col items-start justify-center z-20 text-light'>
-          <Tag link={`/categories/${post.tags[0]}`} name={post.tags[0]} />
+          <Tag link={`/categories/${slug(post.tags[0])}`} name={post.tags[0]} />
           <Link href={post.url} className='mt-6'>
             <h1 className='font-bold capitalize text-4xl '>
-              <span className='bg-gradient-to-r from-catchitBlue to-catchitBlue bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500'>{post.title}</span>
+              <span className='bg-gradient-to-r from-catchitBlue to-catchitBlue bg-[length:0px_6px] hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500'>
+                {post.title}
+              </span>
             </h1>
           </Link>
-          <p className='inline-block mt-4 text-xl font-in'>{post.description}</p>
+          <p className='inline-block mt-4 text-xl font-in'>
+            {post.description}
+          </p>
         </div>
       </article>
     </div>
