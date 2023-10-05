@@ -2,11 +2,60 @@ import { allPosts } from '@/.contentlayer/generated';
 import Tag from '@/app/components/Elements/Tag';
 import PostDetails from '@/app/components/Posts/PostDetails';
 import RenderMdx from '@/app/components/Posts/RenderMdx';
+import siteMetadata from '@/app/utils/siteMetaData';
 import { slug } from 'github-slugger';
 import Image from 'next/image';
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+}
+
+export async function generateMetadata({ params }: any) {
+  const post: any = allPosts.find(
+    (post) => post._raw.flattenedPath === params.slug
+  );
+  if (!post) return;
+
+  const publishedAt = new Date(post.publishedAt).toISOString();
+  const modifiedAt = new Date(post.updatedAt || post.publishedAt).toISOString();
+
+  let imageList = [siteMetadata.socialBanner];
+
+  if (post.image) {
+    imageList =
+      typeof post.image.filePath === 'string'
+        ? [siteMetadata.siteUrl + post.image.filePath.replace('../public', '')]
+        : post.image;
+  }
+
+  const ogImages = imageList.map((img) => {
+    return { url: img.includes('http') ? img : siteMetadata.siteUrl + img };
+  });
+
+  const authors = post?.author ? [post.author] : siteMetadata.author;
+
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: siteMetadata.siteUrl + post.url,
+      siteName: siteMetadata.title,
+      images: ogImages,
+      locale: 'ko-KR',
+      type: 'article',
+      publishedTime: publishedAt,
+      modifiedTime: modifiedAt,
+      author: authors.length > 0 ? authors : [siteMetadata.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: ogImages,
+    },
+  };
 }
 
 export default function PostPage({ params }: { params: { slug: string } }) {

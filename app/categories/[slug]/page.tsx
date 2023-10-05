@@ -1,6 +1,7 @@
 import { allPosts } from '@/.contentlayer/generated';
 import PostLayoutThree from '@/app/components/PostComponent/PostLayoutThree';
 import Categories from '@/app/components/Posts/Categories';
+import siteMetadata from '@/app/utils/siteMetaData';
 import GithubSlugger, { slug } from 'github-slugger';
 
 const slugger = new GithubSlugger();
@@ -22,6 +23,15 @@ export async function generateStaticParams() {
   });
 
   return paths;
+}
+
+export async function generateMetadata({ params }: any) {
+  return {
+    title: `${params.slug.replaceAll('-', ' ')} Posts`,
+    description: `Learn more about ${
+      params.slug === 'all' ? 'web development' : params.slug
+    } through our collections of expert posts and tutorials`,
+  };
 }
 
 const CategoryPage = ({ params }: any) => {

@@ -20,7 +20,7 @@ const RecentPosts = ({ posts }: any) => {
       </div>
 
       <div className='grid grid-cols-3 grid-rows-2 gap-16 mt-16'>
-        {sortedPosts.slice(5, 11).map((post: any, index: Key | null | undefined) => {
+        {sortedPosts.slice(4, 10).map((post: any, index: Key | null | undefined) => {
           return (
             <article key={index} className='col-span-1 row-span-1 relative'>
               <PostLayoutThree post={post} />
