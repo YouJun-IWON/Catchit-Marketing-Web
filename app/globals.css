@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'node_modules/locomotive-scroll/dist/locomotive-scroll';
 
 html {
   scroll-behavior: smooth;
@@ -79,4 +80,3 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
   font-size: 1rem;
   color: #747474;
 }
-

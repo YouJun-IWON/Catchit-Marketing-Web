@@ -1,0 +1,13 @@
+.description {
+  position: relative;
+  z-index: 1;
+  font-size: 3vw;
+  color: white;
+  margin-top: 30vh;
+  margin-left: 10vw;
+}
+
+.description p {
+  margin: 0px;
+  position: relative;
+}
