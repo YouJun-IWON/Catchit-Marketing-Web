@@ -20,6 +20,23 @@ export const heroContent = {
   },
 };
 
+export const hookingContent = {
+  heading: {
+    title: '주입식 홍보가 아닌 상호작용하는 홍보를 지향합니다.',
+    subTitle: 'Hooking Content',
+  },
+  content: {
+    img: '/lendingImages/salar_de_atacama.jpg',
+    title: 'Architects of Innovation, Builders of Beauty.',
+    description:
+      'Every structure we conceive tells a unique story, reflecting the aspirations and dreams of our clients. From conceptualization to realization, we immerse ourselves in the art of design, striving to capture the essence of each project.',
+    btn: {
+      href: '/About',
+      label: 'How we are?',
+    },
+  },
+};
+
 // export const statistics = [
 //   { value: '1k+', label: 'Brands' },
 //   { value: '500+', label: 'Shops' },

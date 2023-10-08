@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './style.module.css';
-import background from '@/public/HeroImages/background.jpeg';
-import intro from '@/public/HeroImages/intro.png';
+import background from '@/public/lendingImages/background.jpeg';
+import intro from '@/public/lendingImages/intro.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLayoutEffect, useRef } from 'react';

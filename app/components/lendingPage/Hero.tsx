@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { heroContent } from '@/constants/lendingPage';
 import { Button } from '@nextui-org/react';
 
-import miniques_lagoon from '@/public/HeroImages/miniques_lagoon.jpg';
+import miniques_lagoon from '@/public/lendingImages/miniques_lagoon.jpg';
 import CoffeeAnimation from '../dotlottieComponent/LottieAnimaiton2';
 
 const Hero = ({ className }: any) => {
@@ -22,6 +22,7 @@ const Hero = ({ className }: any) => {
 
   return (
     <section className={`${className}`} ref={ref}>
+      Hero Section
       <div className='container px-4 mx-auto'>
         <div className='lg:flex w-full lg:w-10/12 mx-auto h-auto lg:h-screen lg:min-h-[700px] items-center justify-between'>
           <div className='lg:w-4/12 z-[3] relative'>
@@ -34,7 +35,7 @@ const Hero = ({ className }: any) => {
                   transition: { delay: 0.1, duration: 0.5 },
                 }}
                 viewport={{ once: true }}
-                className='mb-5 tracking-[3px] inline-block text-gray-600'
+                className='mb-5 tracking-[3px] inline-block text-slate-600'
               >
                 {heroContent.intro.subTitle}
               </motion.span>
@@ -49,7 +50,7 @@ const Hero = ({ className }: any) => {
                   transition: { delay: 0.2, duration: 0.5 },
                 }}
                 viewport={{ once: true }}
-                className='text-gray-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl w-auto lg:w-screen max-w-xl mb-4 md:mb-8'
+                className='text-slate-800 text-3xl sm:text-4xl md:text-5xl lg:text-6xl w-auto lg:w-screen max-w-xl mb-4 md:mb-8'
               >
                 {heroContent.intro.title}
               </motion.h1>
@@ -64,7 +65,7 @@ const Hero = ({ className }: any) => {
                   transition: { delay: 0.3, duration: 0.5 },
                 }}
                 viewport={{ once: true }}
-                className='leading-relaxed text-gray-500 w-auto lg:w-screen max-w-xl text-base lg:text-lg mb-10 lg:mb-16'
+                className='leading-relaxed text-slate-800 w-auto lg:w-screen max-w-xl text-base lg:text-lg mb-10 lg:mb-16'
               >
                 {heroContent.intro.description}
               </motion.p>
@@ -103,28 +104,33 @@ const Hero = ({ className }: any) => {
                 },
               }}
               viewport={{ once: true }}
-              style={{ y: imgScroll1}}
+              style={{ y: imgScroll1 }}
               className='z-[2] relative bg-cover bg-center'
             >
-              <Image src={miniques_lagoon} width={828} height={985} alt='Hero Image' />
+              <Image
+                src={miniques_lagoon}
+                width={828}
+                height={985}
+                alt='Hero Image'
+              />
             </motion.div>
 
             <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              transition: {
-                delay: 0.4,
-                duration: 0.5,
-              },
-            }}
-            viewport={{ once: true }}
-            style={{ y: imgScroll2}}
-            className='absolute bottom-0 lg:bottom-[200px] -left-[400px] z-[2]'>
-           <CoffeeAnimation />
-              
-          </motion.div>
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+                transition: {
+                  delay: 0.4,
+                  duration: 0.5,
+                },
+              }}
+              viewport={{ once: true }}
+              style={{ y: imgScroll2 }}
+              className='absolute bottom-0 lg:bottom-[200px] -left-[400px] z-[2]'
+            >
+              <CoffeeAnimation />
+            </motion.div>
           </div>
         </div>
       </div>

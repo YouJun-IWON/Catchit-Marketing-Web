@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Intro from './Intro';
 import Description from './Description';
 
-const page = () => {
+const PHero = () => {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import('locomotive-scroll')).default;
@@ -20,4 +20,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default PHero;
