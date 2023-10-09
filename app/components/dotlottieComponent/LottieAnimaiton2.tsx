@@ -4,13 +4,11 @@ import '@dotlottie/react-player/dist/index.css';
 
 const CoffeeAnimation = () => {
   return (
-    <div>
-      <DotLottiePlayer
-        src='/Animation - 1696694827657.lottie'
-        autoplay
-        loop
-      ></DotLottiePlayer>
-    </div>
+    <DotLottiePlayer
+      src='/Animation - 1696694827657.lottie'
+      autoplay
+      loop
+    ></DotLottiePlayer>
   );
 };
 

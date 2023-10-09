@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        parallax: 'url("../public/lendingImages/project-4-min.jpg")',
+      },
       colors: {
         dark: '#1b1b1b',
         light: '#fff',

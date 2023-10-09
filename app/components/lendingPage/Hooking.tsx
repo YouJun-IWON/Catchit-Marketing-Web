@@ -62,7 +62,18 @@ const Hooking = ({ className }: any) => {
         <div className='lg:flex justify-center'>
           <div className='lg:w-8/12 lg:flex gap-20 items-center'>
             <div className='mb-7 lg:mb-0 lg:w-6/12 lg:order-2 relative'>
-              <motion.div style={{ y: img1 }} className='z-[2] relative'>
+              <motion.div
+               initial={{ opacity: 0, x: 30 }}
+               whileInView={{
+                 opacity: 1,
+                 x: 0,
+                 transition: {
+                   delay: 0.4,
+                   duration: 0.5,
+                 },
+               }}
+               viewport={{ once: true }}
+              style={{ y: img1 }} className='z-[2] relative'>
                 <Image
                   src={hookingContent.content.img}
                   className='object-cover !h-[550px] !w-full lg:max-w-2xl object-center'

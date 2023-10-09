@@ -7,6 +7,16 @@
 //   twitter,
 // } from '../public/testLending/icons';
 
+import TargetAnimation from '@/app/components/dotlottieComponent/Lottietarget';
+import {
+  BiHardHat,
+  BiPaintRoll,
+  BiNote,
+  BiBulb,
+  BiLayer,
+  BiOutline,
+} from 'react-icons/bi';
+
 export const heroContent = {
   intro: {
     title: 'Where Creativity Meets Structural Integrity',
@@ -34,6 +44,140 @@ export const hookingContent = {
       href: '/About',
       label: 'How we are?',
     },
+  },
+};
+
+export const ServiceContent = {
+  heading: {
+    title: 'Catchit은?',
+    subTitle: 'How It Works',
+    description:
+      "At arcraft we're dedicated to shaping environments that transcend mere structures, weaving stories and experiences into every design.",
+  },
+  steps: [
+    {
+      number: '01',
+      icon: BiHardHat,
+      title: '위치 기반 근거리 홍보',
+      description:
+        "At arcraft we're dedicated to shaping environments that transcend mere structures.",
+      btn: {
+        href: '#',
+        label: 'Learn More',
+      },
+    },
+    {
+      number: '02',
+      icon: BiPaintRoll,
+      title: '사용자가 원하는 목표 설정',
+      description:
+        "At arcraft we're dedicated to shaping environments that transcend mere structures.",
+      btn: {
+        href: '#',
+        label: 'Learn More',
+      },
+    },
+    {
+      number: '03',
+      icon: BiNote,
+      title: '사용자에게 보상 및 홍보',
+      description:
+        "At arcraft we're dedicated to shaping environments that transcend mere structures.",
+      btn: {
+        href: '#',
+        label: 'Learn More',
+      },
+    },
+  ],
+  features: [
+    {
+      icon: TargetAnimation,
+      title: '가장 방문가능성이 높은 타켓',
+      description:
+        'Our journey begins with a spark of imagination and a commitment to turning dreams into tangible spaces. From concept to construction, we orchestrate a symphony of design.',
+      btn: {
+        href: '#',
+        label: 'Learn More',
+      },
+    },
+    {
+      icon: BiBulb,
+      title: '노력과 보상에 따른 홍보',
+      description:
+        'Our journey begins with a spark of imagination and a commitment to turning dreams into tangible spaces. From concept to construction, we orchestrate a symphony of design.',
+      btn: {
+        href: '#',
+        label: 'Learn More',
+      },
+    },
+    {
+      icon: BiOutline,
+      title: '다양한 기능을 추가할 수 있는 홍보',
+      description:
+        'Our journey begins with a spark of imagination and a commitment to turning dreams into tangible spaces. From concept to construction, we orchestrate a symphony of design.',
+      btn: {
+        href: '#',
+        label: 'Learn More',
+      },
+    },
+    {
+      icon: BiOutline,
+      title: '다양한 기능을 추가할 수 있는 홍보',
+      description:
+        'Our journey begins with a spark of imagination and a commitment to turning dreams into tangible spaces. From concept to construction, we orchestrate a symphony of design.',
+      btn: {
+        href: '#',
+        label: 'Learn More',
+      },
+    },
+  ],
+};
+
+export const testimonialContent = {
+  heading: {
+    title: 'Hear what our customers say.',
+    subTitle: 'Testimonials',
+  },
+  testimonials: [
+    {
+      img: '/lendingImages/person-1-min.jpg',
+      name: 'Jane Cooper',
+      titleRole: 'Customer',
+      quote:
+        "Working with arcraft was a dream come true. They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations .Working with [Architect's Name] was a dream come true. They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations.",
+    },
+    {
+      img: '/lendingImages/person-2-min.jpg',
+      name: 'Jane Cooper',
+      titleRole: 'Cafe Owner',
+      quote:
+        "Working with arcraft was a dream come true. They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations .Working with [Architect's Name] was a dream come true. They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations.",
+    },
+    {
+      img: '/lendingImages/person-3-min.jpg',
+      name: 'Jane Cooper',
+      titleRole: 'Restaurant Owner',
+      quote:
+        "Working with arcraft was a dream come true. They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations .Working with [Architect's Name] was a dream come true. They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations.",
+    },
+  ],
+};
+
+export const DetailContent = {
+  heading: {
+    title: '광고 상품 설명',
+    subTitle: 'Our Blog',
+    description:
+      'They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations.',
+  },
+};
+
+export const RegisterContent = {
+  heading: {
+    title: '당신의 업그레이드를 미루지 마세요.',
+    subtitle: '우리의 여정에 합류하세요.',
+    description:
+      '해당 양식에 맞춰서 적으신 후 신청 버튼을 눌러주세요. 캐칫의 최신 소식과 함께 다양한 혜택을 담은 우선권을 부여합니다.',
   },
 };
 
