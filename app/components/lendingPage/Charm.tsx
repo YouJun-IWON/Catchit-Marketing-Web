@@ -93,6 +93,7 @@ const Charm = ({ className }: any) => {
               speed={700}
               spaceBetween={30}
               onSlideChange={(swiper) => setSlideIndex(swiper.activeIndex)}
+              
               className='z-50 py-32 mb-7 relative flex items-center'
             >
               {testimonialContent.testimonials.map((testimonial, idx) => (

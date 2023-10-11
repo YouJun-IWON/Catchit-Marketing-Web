@@ -3,7 +3,7 @@
 import { RegisterContent } from '@/constants/lendingPage';
 import { motion } from 'framer-motion';
 import { BiSolidPaperPlane } from 'react-icons/bi';
-import { useForm } from 'react-hook-form';
+import { Controller, FieldValues, useForm } from 'react-hook-form';
 import { Checkbox, Input, Textarea } from '@nextui-org/react';
 import RegisterModal from '../Modal/RegisterModal';
 import { useState } from 'react';
@@ -12,6 +12,7 @@ const Register = ({ className }: any) => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
   const onSubmit = (data: any) => console.log(data);
@@ -96,25 +97,36 @@ const Register = ({ className }: any) => {
             className='mt-6 min-w-[384px] flex flex-col items-stretch p-2 space-y-3 rounded mx-4 col-span-1 '
           >
             <Input
-              type='email'
+              type='name'
               isRequired
-              label='이메일'
-              {...register('Email', { required: true, maxLength: 100 })}
-            />
-            <Input
-              type='tel'
-              label='전화번호 (010-0000-0000)'
-              {...register('Mobile number', {
+              label='이름 (ex. 홍길동)'
+              {...register('Name', {
                 required: true,
-                minLength: 6,
-                maxLength: 12,
+                maxLength: 20,
               })}
             />
             <Input
-              type='text'
-              label='가게 주소 및 상호명'
+              type='email'
               isRequired
-              {...register('Address', { required: true, maxLength: 100 })}
+              label='이메일'
+              {...register('Email', {
+                required: true,
+                maxLength: 100,
+              })}
+            />
+            <Input
+              type='tel'
+              label='전화번호 (ex. 01011112222)'
+              {...register('Mobile number', {
+                minLength: 9,
+                maxLength: 11,
+              })}
+            />
+            <Input
+              type='address'
+              label='가게 주소 및 상호명  (ex. 도로명주소 / 가게 상호명)'
+              isRequired
+              {...register('Address', { required: 'true', maxLength: 100 })}
             />
             <Textarea
               label='추가 문의 사항'
@@ -122,9 +134,29 @@ const Register = ({ className }: any) => {
               {...register('Description or Question ', { maxLength: 500 })}
             />
             <div className='text-slate-500'>
-              <Checkbox isSelected={isSelected} onValueChange={setIsSelected} ><span className='text-white'>
-              개인정보 처리 동의&nbsp;&nbsp;</span> </Checkbox>
-              <RegisterModal setIsSelected={setIsSelected}/>
+              <Controller
+                name='checkbox'
+                control={control}
+                rules={{ required: '개인정보 취급에 동의해주세요.' }}
+                render={({ field }) => (
+                  <Checkbox
+                    {...field}
+                    isSelected={isSelected}
+                    onValueChange={setIsSelected}
+                  >
+                    <span className='text-white'>
+                      개인정보 처리 동의&nbsp;&nbsp;
+                    </span>{' '}
+                  </Checkbox>
+                )}
+              />
+
+              <RegisterModal setIsSelected={setIsSelected} />
+              {errors.checkbox && (
+                <p className='text-sm leading-relaxed text-red-600'>
+                  {errors.checkbox.message?.toString()}
+                </p>
+              )}
             </div>
 
             <Input type='submit' />

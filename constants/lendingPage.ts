@@ -15,7 +15,11 @@ import {
   BiBulb,
   BiLayer,
   BiOutline,
+  BiArch, BiSolidUser
 } from 'react-icons/bi';
+
+
+
 
 export const heroContent = {
   intro: {
@@ -163,9 +167,34 @@ export const testimonialContent = {
   ],
 };
 
+export const AdvertisingContent = {
+  heading: {
+    title: "Catchit이 갖고 있는 홍보 상품들",
+    subTitle: "왜 Catchit을 사용해야 하는가?",
+
+  },
+  whyUseItems: [
+    {
+      icon: BiHardHat,
+      title: "한번의 이벤트에 최소 3번 노출 홍보",
+      description: "With over 27 years of experience in the industry, our team of architects and designers brings a wealth of knowledge to every project.",
+    },
+    {
+      icon: BiSolidUser,
+      title: "가게 홍보 중심의 UI",
+      description: "With over 27 years of experience in the industry, our team of architects and designers brings a wealth of knowledge to every project.",
+    },
+    {
+      icon: BiArch,
+      title: "다양한 이벤트 트리거 생성 가능",
+      description: "With over 27 years of experience in the industry, our team of architects and designers brings a wealth of knowledge to every project.",
+    },
+  ]
+}
+
 export const DetailContent = {
   heading: {
-    title: '광고 상품 설명',
+    title: '광고 상품 디테일 설명',
     subTitle: 'Our Blog',
     description:
       'They truly understood our vision for our dream home and turned it into a stunning reality. Their attention to detail and creativity exceeded our expectations.',
@@ -179,6 +208,42 @@ export const RegisterContent = {
     description:
       '해당 양식에 맞춰서 적으신 후 신청 버튼을 눌러주세요. 캐칫의 최신 소식과 함께 다양한 혜택을 담은 우선권을 부여합니다.',
   },
+};
+
+export const footerContent = {
+  footerLinks: [
+    {
+      heading: 'Products',
+      links: [
+        { href: '#', label: 'Overview' },
+        { href: '#', label: 'Solutions', badge: 'New' },
+        { href: '#', label: 'Pricing' },
+        { href: '#', label: 'Releases' },
+      ],
+    },
+    {
+      heading: 'Company',
+      links: [
+        { href: '#', label: 'About Us' },
+        { href: '#', label: 'Leadership' },
+        { href: '#', label: 'Careers', badge: 'hiring' },
+        { href: '#', label: 'Press' },
+        { href: '#', label: 'Contact' },
+        { href: '#', label: 'Branding' },
+      ],
+    },
+    {
+      heading: 'Resources',
+      links: [
+        { href: '#', label: 'Blog' },
+        { href: '#', label: 'Events' },
+        { href: '#', label: 'Newsletter' },
+        { href: '#', label: 'Support' },
+        { href: '#', label: 'Tutorials' },
+        { href: '#', label: '이용약관' },
+      ],
+    },
+  ],
 };
 
 // export const statistics = [

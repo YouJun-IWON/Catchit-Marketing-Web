@@ -1,8 +1,12 @@
+import ContactForm from './ContactForm';
+import HeroContact from './HeroContact';
 
 const Contact = () => {
   return (
-    <div>page</div>
-  )
-}
+    <>
+      <ContactForm className='mt-14' />
+    </>
+  );
+};
 
-export default Contact
+export default Contact;

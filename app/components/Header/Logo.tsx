@@ -13,13 +13,13 @@ const Logo = () => {
           fillRule='evenodd'
         />
       </svg>
-      <div className='w-17 overflow-hidden'>
+      <div className='w-17 overflow-hidden font-semibold'>
         {/* <Image
           src={catchitLogo}
           alt='Catchit'
           className='w-full h-auto rounded-lg'
         /> */}
-        catchit
+        Catchit
       </div>
     </Link>
   );
