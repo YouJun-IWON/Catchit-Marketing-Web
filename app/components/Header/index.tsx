@@ -20,10 +20,10 @@ export default function Header() {
 
   const pathName = usePathname();
 
-  const menuItems = ['Home', 'About', 'Contact', 'Post'];
+  const menuItems = ['Home', 'About', 'Contact', 'Posts'];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} shouldHideOnScroll>
+    <Navbar onMenuOpenChange={setIsMenuOpen} className='z-50'>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -145,7 +145,9 @@ export default function Header() {
               //     : 'foreground'
               // }
               className='w-full'
-              href='#'
+              href={`/${
+                item === 'Posts' ? 'postBox' : item === 'Home' ? '' : item
+              }`}
               size='lg'
             >
               {item}

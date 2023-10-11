@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className='flex flex-col -mt-20'>
       {/* <PHero /> */}
-      <Hero className='' />
+      <Hero className='mt-24 md:mt-20 py-5' />
 
       <Hooking className='py-16 overflow-hidden lg:py-16' />
       <Service className='py-16 !pt-32 lg:py-32' />
