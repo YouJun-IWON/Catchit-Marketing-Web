@@ -36,22 +36,34 @@ export default function Header() {
 
       <NavbarContent className='hidden sm:flex gap-4' justify='center'>
         <NavbarItem isActive={pathName === '/'}>
-          <Link href='/' color='foreground'>
+          <Link
+            href='/'
+            color={`${pathName === '/' ? 'primary' : 'foreground'}`}
+          >
             Home
           </Link>
         </NavbarItem>
         <NavbarItem isActive={pathName === '/About'}>
-          <Link href='/About' color='foreground'>
+          <Link
+            href='/About'
+            color={`${pathName === '/About' ? 'primary' : 'foreground'}`}
+          >
             About
           </Link>
         </NavbarItem>
         <NavbarItem isActive={pathName === '/Contact'}>
-          <Link color='foreground' href='/Contact'>
+          <Link
+            color={`${pathName === '/Contact' ? 'primary' : 'foreground'}`}
+            href='/Contact'
+          >
             Contact
           </Link>
         </NavbarItem>
         <NavbarItem isActive={pathName === '/postBox'}>
-          <Link color='foreground' href='/postBox'>
+          <Link
+            color={`${pathName === '/postBox' ? 'primary' : 'foreground'}`}
+            href='/postBox'
+          >
             Posts
           </Link>
         </NavbarItem>
